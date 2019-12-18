@@ -1,0 +1,119 @@
+.mainBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.messageBoxOpened {
+  display: inline-flex;
+  width: 80%;
+  margin: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.messageBoxUnopened {
+  display: inline-flex;
+  width: 80%;
+  margin: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #555;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.messageBoxOpened:hover {
+  background-color: #ccc;
+}
+
+.messageBoxUnopened:hover {
+  background-color: #ccc;
+}
+
+.logoBox {
+  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 10%;
+  /* border: 2px solid #bbb; */
+}
+
+.logo-results {
+  max-height: 50px;
+  height: auto;
+  width: auto;
+}
+
+.universityUnopened {
+  display: inline-flex;
+  text-align: left;
+  /* justify-content: center; */
+  align-items: center;
+  /* text-align: center; */
+  color: #555;
+  width: 15%;
+  margin: 0 auto;
+  font-size: 16px;
+  padding: 10px;
+  /* border: 2px solid #bbb; */
+}
+
+.universityOpened {
+  display: inline-flex;
+  text-align: left;
+  /* justify-content: center; */
+  align-items: center;
+  /* text-align: center; */
+  color: #aaa;
+  width: 15%;
+  margin: 0 auto;
+  font-size: 16px;
+  padding: 10px;
+  /* border: 2px solid #bbb; */
+}
+
+.messageBox:hover .university {
+  color: white;
+}
+
+.messageUnopened {
+  /* background-color: grey; */
+  color: #555;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 75%;
+  font-size: 16px;
+  padding: 10px;
+  border-left: 2px solid #555;
+}
+
+.messageOpened {
+  /* background-color: grey; */
+  color: #aaa;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 75%;
+  font-size: 16px;
+  padding: 10px;
+  border-left: 2px solid #aaa;
+}
+
+.messageBox:hover .message {
+  color: white;
+  border-left: 2px solid #fff;
+}

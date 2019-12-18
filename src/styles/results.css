@@ -1,0 +1,29 @@
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin: 50px;
+}
+
+.resultsButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #06c258;
+  border-radius: 15px;
+  color: #06c258;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 100px;
+  height: 100px;
+  padding: 5px;
+}
+
+.resultsButton:hover {
+  background-color: #06c258;
+  color: white;
+  text-decoration: none;
+}
