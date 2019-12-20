@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { acceptanceOne } from "../assets/text.js";
+import { rejectionOne } from "../assets/text.js";
 
 import "../styles/response.css";
 
@@ -13,6 +15,26 @@ class Response extends Component {
       isOpen: false,
       opened: false
     };
+  }
+
+  createText(accepted) {
+    if (accepted) {
+      return (
+        <div>
+          <pre>
+            {`Dear ${this.props.application.name}, \n ${acceptanceOne}${this.props.application.college} Admissions`}
+          </pre>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <pre>
+            {`Dear ${this.props.application.name}, \n ${rejectionOne}${this.props.application.college} Admissions`}
+          </pre>
+        </div>
+      );
+    }
   }
 
   handleShow() {
@@ -65,8 +87,7 @@ class Response extends Component {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              Hi {this.props.application.name}, you have been{" "}
-              {this.props.application.result ? "accepted" : "rejected"}!
+              {this.createText(this.props.application.result)}
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={this.handleClose}>

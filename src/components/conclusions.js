@@ -2,15 +2,49 @@ import React, { Component } from "react";
 import "../styles/conclusions.css";
 
 import { Link } from "react-router-dom";
+import { commentText } from "../assets/text.js";
 
 class Conclusions extends Component {
   constructor(props) {
     super(props);
+    this.handleText = this.handleText.bind(this);
     this.state = {
       total: null,
       partTwo: "Ivy League Universities!",
       roastString: ""
     };
+  }
+
+  handleText(totalAdmits) {
+    if (totalAdmits <= 3) {
+      let set = commentText["poor"];
+      let text = set[Math.floor(Math.random() * set.length)];
+      this.setState({
+        total: totalAdmits,
+        roastString: text
+      });
+    } else if (totalAdmits <= 5) {
+      let set = commentText["middle"];
+      let text = set[Math.floor(Math.random() * set.length)];
+      this.setState({
+        total: totalAdmits,
+        roastString: text
+      });
+    } else if (totalAdmits <= 7) {
+      let set = commentText["rich"];
+      let text = set[Math.floor(Math.random() * set.length)];
+      this.setState({
+        total: totalAdmits,
+        roastString: text
+      });
+    } else {
+      let set = commentText["really rich"];
+      let text = set[Math.floor(Math.random() * set.length)];
+      this.setState({
+        total: totalAdmits,
+        roastString: text
+      });
+    }
   }
 
   componentDidMount() {
@@ -30,24 +64,21 @@ class Conclusions extends Component {
       });
     }
 
-    this.setState({
-      total: totalAdmits,
-      roastString: "You clearly don't own enough Patagonia."
-    });
+    this.handleText(totalAdmits);
   }
 
   render() {
     return (
       <div>
-        <div class="mainConclusionsBox">
-          <div class="partOne">You got into</div>
-          <div class="resultNumber">{this.state.total}</div>
-          <div class="partTwo">{this.state.partTwo}</div>
+        <div className="mainConclusionsBox">
+          <div className="partOne">You got into</div>
+          <div className="resultNumber">{this.state.total}</div>
+          <div className="partTwo">{this.state.partTwo}</div>
         </div>
-        <div class="comment">{this.state.roastString}</div>
+        <div className="comment">{this.state.roastString}</div>
 
         <Link
-          class="resultsButton"
+          className="resultsButton"
           to={{
             pathname: "/"
           }}

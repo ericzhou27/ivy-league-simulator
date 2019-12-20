@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Application from "../models/application";
 import "../styles/college.css";
+import { nullLiteral } from "@babel/types";
 
 class College extends Component {
   state = {
     applied: false,
-    name: "",
-    gpa: "",
-    sat: ""
+    name: null,
+    gpa: null,
+    sat: null
   };
 
   render() {
@@ -64,17 +65,32 @@ class College extends Component {
             <div
               class={this.state.applied ? "applyButton-clicked" : "applyButton"}
               onClick={() => {
-                let application = new Application(
-                  this.props.name,
-                  this.props.code,
-                  this.state.name,
-                  this.state.gpa,
-                  this.state.sat,
-                  null
-                );
-                // console.log(application);
-                this.props.action(application);
-                this.setState({ applied: true });
+                if (
+                  this.state.sat > 1600 ||
+                  this.state.sat < 400 ||
+                  this.state.sat === null
+                ) {
+                  alert("Please enter a valid SAT score!");
+                } else if (
+                  this.state.gpa > 5 ||
+                  this.state.gpa < 0 ||
+                  this.state.gpa === null
+                ) {
+                  alert("Please enter a valid GPA!");
+                } else if (this.state.name === null) {
+                  alert("Please enter a valid name!");
+                } else {
+                  let application = new Application(
+                    this.props.name,
+                    this.props.code,
+                    this.state.name,
+                    this.state.gpa,
+                    this.state.sat,
+                    null
+                  );
+                  this.props.action(application);
+                  this.setState({ applied: true });
+                }
               }}
             >
               <div
